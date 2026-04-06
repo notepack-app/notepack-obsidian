@@ -16,6 +16,7 @@ on:
       - '*.md'
       - 'scripts/**'
       - '.claude/**'
+      - 'manifest.json'
 
 jobs:
   test:
