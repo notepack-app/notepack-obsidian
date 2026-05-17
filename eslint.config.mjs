@@ -11,7 +11,8 @@ export default defineConfig([
     "*.config.mjs",
     "*.config.js",
     "scripts/*.js",
-    "main.js"
+    "main.js",
+    "package.json"
   ]),
   {
     files: ["src/**/*.ts"],
