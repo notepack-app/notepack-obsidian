@@ -5,7 +5,7 @@ const DISPLAY_TEXT = "Recent files";
 
 export class RecentFilesView extends ItemView {
   private settings: NotePackSettings;
-  private refreshTimer: ReturnType<typeof setInterval> | null = null;
+  private refreshTimer: number | null = null;
 
   constructor(leaf: WorkspaceLeaf, settings: NotePackSettings) {
     super(leaf);
