@@ -21,6 +21,8 @@ export default defineConfig([
       globals: {
         ...globals.browser,
         ...globals.nodeBuiltin,
+        activeWindow: "readonly",
+        activeDocument: "readonly",
       }
     },
 
