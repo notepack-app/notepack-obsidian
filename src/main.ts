@@ -150,7 +150,7 @@ export default class NotePackPlugin extends Plugin {
         this.todoIndex.removeFile(oldPath);
         if (file instanceof TFile && file.extension === "md") {
           // Wait a tick for the metadata cache to process the rename
-          setTimeout(() => {
+          activeWindow.setTimeout(() => {
             (async () => {
               const cache = this.app.metadataCache.getFileCache(file);
               const content = await this.app.vault.cachedRead(file);
@@ -166,7 +166,7 @@ export default class NotePackPlugin extends Plugin {
       this.app.vault.on("create", (file: TAbstractFile) => {
         if (file instanceof TFile && file.extension === "md") {
           // Wait a tick for the metadata cache to process
-          setTimeout(() => {
+          activeWindow.setTimeout(() => {
             const cache = this.app.metadataCache.getFileCache(file);
             void this.todoIndex.updateFile(file, undefined, cache ?? undefined).catch(console.error);
           }, 200);

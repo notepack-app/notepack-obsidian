@@ -5,7 +5,7 @@ const DISPLAY_TEXT = "Recent files";
 
 export class RecentFilesView extends ItemView {
   private settings: NotePackSettings;
-  private refreshTimer: ReturnType<typeof setInterval> | null = null;
+  private refreshTimer: number | null = null;
 
   constructor(leaf: WorkspaceLeaf, settings: NotePackSettings) {
     super(leaf);
@@ -33,13 +33,13 @@ export class RecentFilesView extends ItemView {
     this.render();
 
     // Re-render periodically since mtime changes don't trigger a specific event
-    this.refreshTimer = setInterval(() => this.render(), 10000);
+    this.refreshTimer = activeWindow.setInterval(() => this.render(), 10000);
 
     // Also re-render on layout change (file open, etc.)
     this.registerEvent(
       this.app.vault.on("modify", () => {
         // Debounce: re-render after a short delay
-        setTimeout(() => this.render(), 1000);
+        activeWindow.setTimeout(() => this.render(), 1000);
       })
     );
     return Promise.resolve();
@@ -47,7 +47,7 @@ export class RecentFilesView extends ItemView {
 
   onClose(): Promise<void> {
     if (this.refreshTimer) {
-      clearInterval(this.refreshTimer);
+      activeWindow.clearInterval(this.refreshTimer);
       this.refreshTimer = null;
     }
     return Promise.resolve();

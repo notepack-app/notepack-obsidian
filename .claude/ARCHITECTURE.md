@@ -180,7 +180,7 @@ All views extend `ItemView` and follow the pattern:
 - **Tests**: Jest with ts-jest, obsidian module mocked
 - **Coverage thresholds**: 80% lines, 75% branches, 80% functions
 - **Coverage exclusions**: main.ts, settings.ts, views/, modals/
-- **Scripts**: `npm run build` (production), `npm run dev` (watch), `npm test` (lint + test)
+- **Scripts**: `pnpm run build` (production), `pnpm run dev` (watch), `pnpm test` (lint + test)
 
 ## Design Patterns
 
