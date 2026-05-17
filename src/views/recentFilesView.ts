@@ -33,7 +33,7 @@ export class RecentFilesView extends ItemView {
     this.render();
 
     // Re-render periodically since mtime changes don't trigger a specific event
-    this.refreshTimer = setInterval(() => this.render(), 10000);
+    this.refreshTimer = activeWindow.setInterval(() => this.render(), 10000);
 
     // Also re-render on layout change (file open, etc.)
     this.registerEvent(
@@ -47,7 +47,7 @@ export class RecentFilesView extends ItemView {
 
   onClose(): Promise<void> {
     if (this.refreshTimer) {
-      clearInterval(this.refreshTimer);
+      activeWindow.clearInterval(this.refreshTimer);
       this.refreshTimer = null;
     }
     return Promise.resolve();
