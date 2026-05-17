@@ -39,7 +39,7 @@ export class RecentFilesView extends ItemView {
     this.registerEvent(
       this.app.vault.on("modify", () => {
         // Debounce: re-render after a short delay
-        setTimeout(() => this.render(), 1000);
+        activeWindow.setTimeout(() => this.render(), 1000);
       })
     );
     return Promise.resolve();
