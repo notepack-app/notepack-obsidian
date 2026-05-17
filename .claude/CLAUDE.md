@@ -8,5 +8,5 @@ Obsidian plugin — follow all best-practice guidelines. Before enhancements, re
 
 # Coding best-practices
 
-- After modifying JavaScript files run `npm run build` to verify build and `npm test` to verify operation.
+- After modifying JavaScript files run `pnpm run build` to verify build and `pnpm test` to verify operation.
 - After modifications, keep ARCHITECTURE.md and README.md up-to-date

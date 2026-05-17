@@ -4,7 +4,7 @@ const { execSync } = require('child_process');
 const branch = execSync('git rev-parse --abbrev-ref HEAD').toString().trim();
 
 if (branch !== 'dev') {
-  console.error(`Error: npm version must be run from the "dev" branch (current branch: "${branch}")`);
+  console.error(`Error: pnpm version must be run from the "dev" branch (current branch: "${branch}")`);
   process.exit(1);
 }
 
@@ -13,6 +13,6 @@ execSync('git fetch origin dev', { stdio: 'ignore' });
 const diff = execSync('git diff dev origin/dev').toString().trim();
 
 if (diff) {
-  console.error('Error: Local "dev" branch differs from "origin/dev". Pull or push changes before running npm version.');
+  console.error('Error: Local "dev" branch differs from "origin/dev". Pull or push changes before running pnpm version.');
   process.exit(1);
 }

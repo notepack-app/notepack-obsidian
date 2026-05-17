@@ -3,12 +3,14 @@
   "version": "1.6.3",
   "description": "NotePack plugin for Obsidian - Todo collation with team management",
   "main": "main.js",
+  "packageManager": "pnpm@11.1.2",
   "scripts": {
     "dev": "node esbuild.config.mjs",
     "build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production",
-    "test": "npx eslint && jest --verbose",
-    "test:coverage": "jest --coverage",
-    "preversion": "node scripts/preversion.js && npm test",
+    "clean": "rm -rf main.js node_modules coverage",
+    "test": "pnpm eslint && pnpm jest --verbose",
+    "test:coverage": "pnpm jest --coverage",
+    "preversion": "node scripts/preversion.js && pnpm test",
     "version": "node scripts/version.js && git add manifest.json",
     "postversion": "node scripts/postversion.js"
   },
@@ -25,14 +27,17 @@
     "url": "git+https://github.com/kynatro/notepack-obsidian.git"
   },
   "engines": {
-    "node": "24"
+    "node": "24",
+    "pnpm": "11.1.2"
   },
   "devDependencies": {
     "@types/jest": "^30.0.0",
     "@types/node": "^25.6.0",
+    "@typescript-eslint/parser": "^8.59.3",
     "esbuild": "0.28.0",
     "eslint": "^10.2.0",
     "eslint-plugin-obsidianmd": "^0.1.9",
+    "globals": "^17.6.0",
     "jest": "^30.3.0",
     "obsidian": "latest",
     "ts-jest": "^29.4.9",
