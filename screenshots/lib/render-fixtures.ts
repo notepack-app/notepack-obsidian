@@ -106,19 +106,19 @@ export function renderFixtures(opts: RenderOptions): RenderResult {
   let filesWritten = 0;
   let datesShifted = 0;
 
-  const walk = (relDir: string): void => {
-    const absDir = path.join(sourceResolved, relDir);
+  const walk = (relSrcDir: string, relOutDir: string): void => {
+    const absDir = path.join(sourceResolved, relSrcDir);
     const entries = fs.readdirSync(absDir, { withFileTypes: true });
     for (const entry of entries) {
-      const srcRel = path.join(relDir, entry.name);
+      const srcRel = path.join(relSrcDir, entry.name);
       const shiftedName = shiftDatesInString(entry.name, deltaDays);
       datesShifted += shiftedName.count;
-      const outRel = path.join(relDir, shiftedName.output);
+      const outRel = path.join(relOutDir, shiftedName.output);
       const outAbs = path.join(outResolved, outRel);
 
       if (entry.isDirectory()) {
         fs.mkdirSync(outAbs, { recursive: true });
-        walk(srcRel);
+        walk(srcRel, outRel);
         continue;
       }
 
@@ -137,7 +137,7 @@ export function renderFixtures(opts: RenderOptions): RenderResult {
     }
   };
 
-  walk("");
+  walk("", "");
 
   return { filesWritten, datesShifted, deltaDays };
 }

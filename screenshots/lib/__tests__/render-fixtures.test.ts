@@ -282,4 +282,26 @@ describe("renderFixtures transform", () => {
     expect(result.datesShifted).toBe(3);
     expect(result.deltaDays).toBe(2);
   });
+
+  it("shifts dates in directory names and routes children correctly", () => {
+    writeSource("2026-05-22 Meetings/note.md", "x 2026-05-30 y\n");
+
+    renderFixtures({
+      sourceDir: source,
+      outDir: out,
+      anchorDate: "2026-05-23",
+      today: new Date(Date.UTC(2026, 4, 30)), // anchor + 7
+    });
+
+    // Directory name shifted from 2026-05-22 -> 2026-05-29; child routed there
+    const shiftedDir = path.join(out, "2026-05-29 Meetings");
+    expect(fs.existsSync(shiftedDir)).toBe(true);
+    expect(fs.existsSync(path.join(shiftedDir, "note.md"))).toBe(true);
+    expect(
+      fs.readFileSync(path.join(shiftedDir, "note.md"), "utf8"),
+    ).toBe("x 2026-06-06 y\n");
+
+    // Unshifted dir name must NOT exist
+    expect(fs.existsSync(path.join(out, "2026-05-22 Meetings"))).toBe(false);
+  });
 });
