@@ -10,7 +10,7 @@ If you discover a security vulnerability in NotePack, **please do not open a pub
 
 ### How to Report
 
-1. **GitHub Private Vulnerability Reporting** (preferred): Use [GitHub's security advisory feature](https://github.com/kynatro/notepack-obsidian/security/advisories/new) to submit a private report.
+1. **GitHub Private Vulnerability Reporting** (preferred): Use [GitHub's security advisory feature](https://github.com/notepack-app/notepack-obsidian/security/advisories/new) to submit a private report.
 2. **Email**: Contact the maintainer directly via the profile at [github.com/kynatro](https://github.com/kynatro).
 
 ### What to Include
