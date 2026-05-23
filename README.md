@@ -6,11 +6,15 @@
 
 Todo collation with team management — an Obsidian plugin port of [notepack-cli](https://github.com/notepack-app/notepack-cli).
 
+![](docs/screenshots/my-todos.png)
+
 ## What It Does
 
 NotePack scans your vault's markdown files for unchecked todos (`- [ ]`), assigns them to people via `@mention` syntax, and provides organized sidebar views. It's designed for people managers and project leads who take notes in markdown and need to track who owes what.
 
 ### Todo Assignment
+
+![](docs/screenshots/mention-syntax.png)
 
 Any unchecked todo without an `@mention` is assigned to **you**:
 
@@ -71,6 +75,8 @@ The My todos and Team todos views sort due todos to the top:
 
 ### Team Management
 
+![](docs/screenshots/team-todos.png)
+
 Create a `Team` folder (configurable) with subfolders for each team member. Each member folder should have a `README.md` with optional front-matter:
 
 ```
@@ -94,6 +100,8 @@ aliases:
 NotePack automatically creates a `firstname.lastname` alias for every member (e.g., `@Jane.Doe`).
 
 ## Commands
+
+![](docs/screenshots/commands-panel.png)
 
 Open the command palette (`Ctrl/Cmd + P`) and search for "NotePack":
 
@@ -124,6 +132,8 @@ The export command writes a point-in-time snapshot of todos into README.md files
 - Writes recently modified files to the root `README.md`
 
 ## Settings
+
+![](docs/screenshots/settings-panel.png)
 
 Configure via **Settings → NotePack**:
 

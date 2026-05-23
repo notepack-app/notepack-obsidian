@@ -16,7 +16,10 @@ module.exports = {
       },
     ],
   },
-  testMatch: ["**/src/__tests__/**/*.test.ts"],
+  testMatch: [
+    "**/src/__tests__/**/*.test.ts",
+    "**/screenshots/lib/__tests__/**/*.test.ts",
+  ],
   collectCoverageFrom: [
     "src/**/*.ts",
     "!src/__tests__/**",
