@@ -2,6 +2,7 @@ import * as fs from "node:fs";
 import * as path from "node:path";
 
 const ISO_DATE_RE = /^(\d{4})-(\d{2})-(\d{2})$/;
+const ISO_DATE_GLOBAL_RE = /\b(\d{4})-(\d{2})-(\d{2})\b/g;
 const MS_PER_DAY = 24 * 60 * 60 * 1000;
 
 export const AUTHORED_AS_OF = "2026-05-23";
@@ -52,6 +53,18 @@ export function shiftIsoDate(iso: string, deltaDays: number): string {
   return formatIsoDateUtc(ms + deltaDays * MS_PER_DAY);
 }
 
+function shiftDatesInString(
+  input: string,
+  deltaDays: number,
+): { output: string; count: number } {
+  let count = 0;
+  const output = input.replace(ISO_DATE_GLOBAL_RE, (match) => {
+    count += 1;
+    return shiftIsoDate(match, deltaDays);
+  });
+  return { output, count };
+}
+
 function validateOptions(opts: RenderOptions): {
   todayMs: number;
   anchorMs: number;
@@ -83,10 +96,48 @@ function validateOptions(opts: RenderOptions): {
 }
 
 export function renderFixtures(opts: RenderOptions): RenderResult {
-  // Walk + transform implemented in Task 5.
-  // For now: just validate so the validation tests pass.
-  // Intentionally suppress unused destructuring; `fs` will be used in Task 5.
-  void fs;
-  validateOptions(opts);
-  return { filesWritten: 0, datesShifted: 0, deltaDays: 0 };
+  const { todayMs, anchorMs, sourceResolved, outResolved } =
+    validateOptions(opts);
+  const deltaDays = Math.round((todayMs - anchorMs) / MS_PER_DAY);
+
+  fs.rmSync(outResolved, { recursive: true, force: true });
+  fs.mkdirSync(outResolved, { recursive: true });
+
+  let filesWritten = 0;
+  let datesShifted = 0;
+
+  const walk = (relDir: string): void => {
+    const absDir = path.join(sourceResolved, relDir);
+    const entries = fs.readdirSync(absDir, { withFileTypes: true });
+    for (const entry of entries) {
+      const srcRel = path.join(relDir, entry.name);
+      const shiftedName = shiftDatesInString(entry.name, deltaDays);
+      datesShifted += shiftedName.count;
+      const outRel = path.join(relDir, shiftedName.output);
+      const outAbs = path.join(outResolved, outRel);
+
+      if (entry.isDirectory()) {
+        fs.mkdirSync(outAbs, { recursive: true });
+        walk(srcRel);
+        continue;
+      }
+
+      if (!entry.isFile()) {
+        continue;
+      }
+
+      const srcAbs = path.join(sourceResolved, srcRel);
+      const text = fs.readFileSync(srcAbs, "utf8");
+      const shifted = shiftDatesInString(text, deltaDays);
+      datesShifted += shifted.count;
+
+      fs.mkdirSync(path.dirname(outAbs), { recursive: true });
+      fs.writeFileSync(outAbs, shifted.output, "utf8");
+      filesWritten += 1;
+    }
+  };
+
+  walk("");
+
+  return { filesWritten, datesShifted, deltaDays };
 }
