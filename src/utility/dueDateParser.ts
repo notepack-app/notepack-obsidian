@@ -75,9 +75,10 @@ const DATE_CHUNK =
   `)`;
 
 const DUE_PATTERNS = [
-  new RegExp(`\\bdue\\s+(?:by|on|at)\\s+(${DATE_CHUNK})`, "i"),
+  new RegExp(`\\bdue\\s+(?:by|on|at|before)\\s+(${DATE_CHUNK})`, "i"),
   new RegExp(`\\bdue\\s+(${DATE_CHUNK})`, "i"),
   new RegExp(`\\bby\\s+(${DATE_CHUNK})`, "i"),
+  new RegExp(`\\bbefore\\s+(${DATE_CHUNK})`, "i"),
   new RegExp(`\\bon\\s+(${DATE_CHUNK})`, "i"),
 ];
 

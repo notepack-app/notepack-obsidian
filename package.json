@@ -20,11 +20,14 @@
     "todos",
     "team"
   ],
-  "author": "Dave Shepard",
+  "author": {
+    "name": "Dave Shepard",
+    "url": "htttps://github.com/kynatro"
+  },
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kynatro/notepack-obsidian.git"
+    "url": "git+https://github.com/notepack-app/notepack-obsidian.git"
   },
   "engines": {
     "node": "24",
