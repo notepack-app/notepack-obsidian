@@ -9,8 +9,10 @@ export default defineConfig([
     "src/__tests__/**",
     "src/__mocks__/**",
     "*.config.mjs",
+    "*.config.mts",
     "*.config.js",
     "scripts/*.js",
+    "screenshots/**",
     "main.js",
     "package.json"
   ]),

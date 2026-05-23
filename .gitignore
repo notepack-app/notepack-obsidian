@@ -16,3 +16,7 @@ main.js
 # Claude configuration
 .claude/worktrees/
 .claude/settings.local.json
+
+# Screenshot harness (wdio-obsidian-service)
+.obsidian-cache/
+screenshots/fixture-vault/.obsidian/workspace*.json
