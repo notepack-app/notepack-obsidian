@@ -105,6 +105,7 @@ export function renderFixtures(opts: RenderOptions): RenderResult {
 
   let filesWritten = 0;
   let datesShifted = 0;
+  const writtenPaths = new Set<string>();
 
   const walk = (relSrcDir: string, relOutDir: string): void => {
     const absDir = path.join(sourceResolved, relSrcDir);
@@ -115,6 +116,13 @@ export function renderFixtures(opts: RenderOptions): RenderResult {
       datesShifted += shiftedName.count;
       const outRel = path.join(relOutDir, shiftedName.output);
       const outAbs = path.join(outResolved, outRel);
+
+      if (writtenPaths.has(outRel)) {
+        throw new Error(
+          `Post-shift collision: multiple source entries map to ${outRel}`,
+        );
+      }
+      writtenPaths.add(outRel);
 
       if (entry.isDirectory()) {
         fs.mkdirSync(outAbs, { recursive: true });
