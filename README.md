@@ -40,7 +40,7 @@ Wrap a date expression with a trigger phrase:
 - [ ] Close sprint by EOM
 ```
 
-Trigger phrases: `due by`, `due on`, `due at`, `due`, `by`
+Trigger phrases: `due by`, `due on`, `due at`, `due before`, `due`, `by`, `before`
 
 | Date format | Example |
 |---|---|
