@@ -674,6 +674,70 @@ describe("parseDueDate – 'end of day' compound (REF = Thursday Mar 5)", () => 
   });
 });
 
+// ─── parseDueDate – 'before' trigger ────────────────────────────────────────
+
+describe("parseDueDate – 'before' trigger (REF = Thursday Mar 5)", () => {
+  it("parses 'before Friday' as next Friday", () => {
+    expect(parseDueDate("ship feature before Friday", REF)).toEqual(d(2026, 3, 6));
+  });
+
+  it("parses 'before Monday' as next Monday", () => {
+    expect(parseDueDate("respond before Monday", REF)).toEqual(d(2026, 3, 9));
+  });
+
+  it("parses 'before 2026-03-15'", () => {
+    expect(parseDueDate("review PR before 2026-03-15", REF)).toEqual(d(2026, 3, 15));
+  });
+
+  it("parses 'before March 15'", () => {
+    expect(parseDueDate("submit before March 15", REF)).toEqual(d(2026, 3, 15));
+  });
+
+  it("parses 'before tomorrow'", () => {
+    expect(parseDueDate("finish before tomorrow", REF)).toEqual(d(2026, 3, 6));
+  });
+
+  it("parses 'before EOD' at endOfDayHour", () => {
+    expect(parseDueDate("send email before EOD", REF, 17, 6)).toEqual(
+      d(2026, 3, 5, 17)
+    );
+  });
+
+  it("parses 'before EOW' at end of week", () => {
+    expect(parseDueDate("wrap up before EOW", REF, 17, 6)).toEqual(
+      d(2026, 3, 7, 23, 59, 59)
+    );
+  });
+
+  it("parses 'before EOM' at end of month", () => {
+    expect(parseDueDate("close sprint before EOM", REF)).toEqual(
+      d(2026, 3, 31, 23, 59, 59)
+    );
+  });
+
+  it("parses 'due before EOD' compound trigger", () => {
+    expect(parseDueDate("due before EOD", REF, 17, 6)).toEqual(
+      d(2026, 3, 5, 17)
+    );
+  });
+
+  it("parses 'due before Friday' compound trigger", () => {
+    expect(parseDueDate("task due before Friday", REF)).toEqual(d(2026, 3, 6));
+  });
+
+  it("parses 'before next week'", () => {
+    expect(parseDueDate("ship before next week", REF)).toEqual(d(2026, 3, 8));
+  });
+
+  it("returns null for 'before' followed by a non-date word", () => {
+    expect(parseDueDate("standing before John", REF)).toBeNull();
+  });
+
+  it("respects word boundaries (does not match inside another word)", () => {
+    expect(parseDueDate("therebefore Friday is fine", REF)).toBeNull();
+  });
+});
+
 // ─── getDueDateStatus ─────────────────────────────────────────────────────────
 
 describe("getDueDateStatus", () => {
