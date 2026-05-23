@@ -21,7 +21,7 @@ export const config: WebdriverIO.Config = {
         appVersion,
         installerVersion,
         plugins: ["."],
-        vault: "screenshots/fixture-vault",
+        vault: "screenshots/.fixture-vault-rendered",
       },
       "goog:chromeOptions": {
         args: ["--window-size=1440,900", "--force-device-scale-factor=1"],
