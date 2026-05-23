@@ -10,7 +10,8 @@
     "clean": "rm -rf main.js node_modules coverage",
     "test": "pnpm eslint && pnpm jest --verbose",
     "test:coverage": "pnpm jest --coverage",
-    "screenshots": "wdio run ./wdio.conf.mts",
+    "screenshots:render": "tsx screenshots/render.ts",
+    "screenshots": "pnpm screenshots:render && wdio run ./wdio.conf.mts",
     "preversion": "node scripts/preversion.js && pnpm test",
     "version": "node scripts/version.js && git add manifest.json",
     "postversion": "node scripts/postversion.js"
