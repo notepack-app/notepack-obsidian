@@ -1,5 +1,4 @@
 import { browser } from "@wdio/globals";
-import { before, describe, it } from "mocha";
 import * as fs from "node:fs";
 import * as path from "node:path";
 import { fileURLToPath } from "node:url";
