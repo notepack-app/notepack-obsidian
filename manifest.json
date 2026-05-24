@@ -1,7 +1,7 @@
 {
   "id": "notepack",
   "name": "NotePack",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "minAppVersion": "1.7.2",
   "description": "Scans your vault's markdown files for unchecked todos and collates them in a todos sidebar. Supports @mention for team members and natural language due date logic.",
   "author": "Dave Shepard",
