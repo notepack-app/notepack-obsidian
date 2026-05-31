@@ -75,8 +75,8 @@ importers:
         specifier: ^3.0.3
         version: 3.0.3
       wdio-obsidian-service:
-        specifier: ^3.0.3
-        version: 3.0.3(obsidian@1.12.3(@codemirror/state@6.5.0)(@codemirror/view@6.38.6))(webdriverio@9.27.1)
+        specifier: ^3.0.4
+        version: 3.0.4(obsidian@1.12.3(@codemirror/state@6.5.0)(@codemirror/view@6.38.6))(webdriverio@9.27.1)
 
 packages:
 
@@ -3036,6 +3036,11 @@ packages:
     engines: {node: '>=18.20.0'}
     hasBin: true
 
+  obsidian-launcher@3.0.4:
+    resolution: {integrity: sha512-jeGcQK9OgtFycEITmfe/Bin/CPsT8VBGW2jI7FDBWj94QWdhVCKLN5SQMV7qioWIIkrJnDiyScMujNqIEyzrGg==}
+    engines: {node: '>=18.20.0'}
+    hasBin: true
+
   obsidian@1.12.3:
     resolution: {integrity: sha512-HxWqe763dOqzXjnNiHmAJTRERN8KILBSqxDSEqbeSr7W8R8Jxezzbca+nz1LiiqXnMpM8lV2jzAezw3CZ4xNUw==}
     peerDependencies:
@@ -3817,8 +3822,8 @@ packages:
     resolution: {integrity: sha512-2VlWFIdy7wlnMVAn9MbtQufi+iDeXOoK+MhiYcjyNu+mD6vkyWCBfl4yi7h1HUrNco6wjF4KizyXhpFtMG/1Zw==}
     engines: {node: '>=18.20.0'}
 
-  wdio-obsidian-service@3.0.3:
-    resolution: {integrity: sha512-ogMvq22+di6QNLPHZ5md8lX2YrV6gkUOysnWfB9A2v/L9E6NiXomJHspFKrs4UpDjViavMeZd+3vMitpu8DOfQ==}
+  wdio-obsidian-service@3.0.4:
+    resolution: {integrity: sha512-gDRfbkNWou5v/79KH2ILHirYrYX/9dq2jD+pcxoewlXwvZlMd7PgG1f0T9hfUdk2wxoRMJPq/eduBowMWG62fA==}
     engines: {node: '>=18.20.0'}
     peerDependencies:
       appium: '>=2.19.0'
@@ -6196,7 +6201,7 @@ snapshots:
     dependencies:
       empathic: 2.0.1
       module-replacements: 2.11.0
-      semver: 7.8.0
+      semver: 7.8.1
 
   eslint-plugin-es-x@7.8.0(eslint@10.4.0(jiti@2.7.0)):
     dependencies:
@@ -7681,6 +7686,24 @@ snapshots:
       - supports-color
       - utf-8-validate
 
+  obsidian-launcher@3.0.4:
+    dependencies:
+      7z-wasm: 1.2.0
+      '@electron/get': 5.0.0
+      '@supercharge/promise-pool': 3.3.0
+      chrome-remote-interface: 0.33.3
+      classic-level: 3.0.0
+      commander: 14.0.3
+      consola: 3.4.2
+      dotenv: 17.4.2
+      lodash: 4.18.1
+      readline-sync: 1.4.10
+      semver: 7.8.1
+    transitivePeerDependencies:
+      - bufferutil
+      - supports-color
+      - utf-8-validate
+
   obsidian@1.12.3(@codemirror/state@6.5.0)(@codemirror/view@6.38.6):
     dependencies:
       '@codemirror/state': 6.5.0
@@ -8568,12 +8591,12 @@ snapshots:
       '@wdio/reporter': 9.27.1
       '@wdio/spec-reporter': 9.27.1
 
-  wdio-obsidian-service@3.0.3(obsidian@1.12.3(@codemirror/state@6.5.0)(@codemirror/view@6.38.6))(webdriverio@9.27.1):
+  wdio-obsidian-service@3.0.4(obsidian@1.12.3(@codemirror/state@6.5.0)(@codemirror/view@6.38.6))(webdriverio@9.27.1):
     dependencies:
       lodash: 4.18.1
       obsidian: 1.12.3(@codemirror/state@6.5.0)(@codemirror/view@6.38.6)
-      obsidian-launcher: 3.0.3
-      semver: 7.8.0
+      obsidian-launcher: 3.0.4
+      semver: 7.8.1
       tar: 7.5.15
       webdriverio: 9.27.1
     transitivePeerDependencies:

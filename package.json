@@ -58,6 +58,6 @@
     "tsx": "^4.22.3",
     "typescript": "5.9.3",
     "wdio-obsidian-reporter": "^3.0.3",
-    "wdio-obsidian-service": "^3.0.3"
+    "wdio-obsidian-service": "^3.0.4"
   }
 }
