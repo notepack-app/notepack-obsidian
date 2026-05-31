@@ -72,8 +72,8 @@ importers:
         specifier: 5.9.3
         version: 5.9.3
       wdio-obsidian-reporter:
-        specifier: ^3.0.3
-        version: 3.0.3
+        specifier: ^3.0.4
+        version: 3.0.4
       wdio-obsidian-service:
         specifier: ^3.0.3
         version: 3.0.3(obsidian@1.12.3(@codemirror/state@6.5.0)(@codemirror/view@6.38.6))(webdriverio@9.27.1)
@@ -1152,6 +1152,10 @@ packages:
     resolution: {integrity: sha512-2ueVjd5hOCclfC+GV3yhaN/4Tids1mXMcpPtNTPushHIQY4gLmBqqKDe5RSXAED3bNU+DRdHq2uBiZTBd4QDJg==}
     engines: {node: '>=18.20.0'}
 
+  '@wdio/reporter@9.27.2':
+    resolution: {integrity: sha512-JDbBeSM8TMZ3CRTnF1fJqyUJEYDas6k1xjVZnrGrO8L/8xQ8dG2vaC5wGJz6uMSHazyks8pL3g/RS8dTbTUPbg==}
+    engines: {node: '>=18.20.0'}
+
   '@wdio/runner@9.27.1':
     resolution: {integrity: sha512-vd/cVrI1++TAqs85CJFt0eJT3/fr1njMBV5I0GDjsHN6J0g9hemJk3VV7T4x1cBtAnCPlj22Q2Bzy4JhYN2gLg==}
     engines: {node: '>=18.20.0'}
@@ -1165,6 +1169,10 @@ packages:
 
   '@wdio/types@9.27.1':
     resolution: {integrity: sha512-EHBNCvLmvpYerln4mb/OBxzKtnavL2wdenjhwuYjzkZMOWHgm/uLXH6sLThM0y6DIbCU72Asth16fo1eDcsofA==}
+    engines: {node: '>=18.20.0'}
+
+  '@wdio/types@9.27.2':
+    resolution: {integrity: sha512-nBUq2juoaaibrOacn/cZ5IjZvJa6ZAHlh1B4UjMxOVcd7kzZyXJjfwAP3vNnboK4dyCLHyKLM+TpfFMmoO59OQ==}
     engines: {node: '>=18.20.0'}
 
   '@wdio/utils@9.27.1':
@@ -3813,8 +3821,8 @@ packages:
   wcwidth@1.0.1:
     resolution: {integrity: sha512-XHPEwS0q6TaxcvG85+8EYkbiCux2XtWG2mkc47Ng2A77BQu9+DqIOJldST4HgPkuea7dvKSj5VgX3P1d4rW8Tg==}
 
-  wdio-obsidian-reporter@3.0.3:
-    resolution: {integrity: sha512-2VlWFIdy7wlnMVAn9MbtQufi+iDeXOoK+MhiYcjyNu+mD6vkyWCBfl4yi7h1HUrNco6wjF4KizyXhpFtMG/1Zw==}
+  wdio-obsidian-reporter@3.0.4:
+    resolution: {integrity: sha512-bSwx7Q3X6VGvdGglgeNtcAsnPRqtRhXnacqHFK+uIL+PtHsclImquktK3dIw5AGNFFogQEw5WgEJt0xKZhIG2A==}
     engines: {node: '>=18.20.0'}
 
   wdio-obsidian-service@3.0.3:
@@ -5284,6 +5292,14 @@ snapshots:
       diff: 8.0.4
       object-inspect: 1.13.4
 
+  '@wdio/reporter@9.27.2':
+    dependencies:
+      '@types/node': 20.19.41
+      '@wdio/logger': 9.18.0
+      '@wdio/types': 9.27.2
+      diff: 8.0.4
+      object-inspect: 1.13.4
+
   '@wdio/runner@9.27.1(expect-webdriverio@5.6.5)(webdriverio@9.27.1)':
     dependencies:
       '@types/node': 20.19.41
@@ -5314,6 +5330,10 @@ snapshots:
       pretty-ms: 9.3.0
 
   '@wdio/types@9.27.1':
+    dependencies:
+      '@types/node': 20.19.41
+
+  '@wdio/types@9.27.2':
     dependencies:
       '@types/node': 20.19.41
 
@@ -8563,9 +8583,9 @@ snapshots:
       defaults: 1.0.4
     optional: true
 
-  wdio-obsidian-reporter@3.0.3:
+  wdio-obsidian-reporter@3.0.4:
     dependencies:
-      '@wdio/reporter': 9.27.1
+      '@wdio/reporter': 9.27.2
       '@wdio/spec-reporter': 9.27.1
 
   wdio-obsidian-service@3.0.3(obsidian@1.12.3(@codemirror/state@6.5.0)(@codemirror/view@6.38.6))(webdriverio@9.27.1):
