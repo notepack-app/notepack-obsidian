@@ -43,7 +43,7 @@ importers:
         version: 10.4.0(jiti@2.7.0)
       eslint-plugin-obsidianmd:
         specifier: ^0.3.0
-        version: 0.3.0(@eslint/js@9.39.4)(@eslint/json@0.14.0)(@typescript-eslint/parser@8.59.4(eslint@10.4.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.4.0(jiti@2.7.0))(obsidian@1.12.3(@codemirror/state@6.5.0)(@codemirror/view@6.38.6))(typescript-eslint@8.59.3(eslint@10.4.0(jiti@2.7.0))(typescript@5.9.3))
+        version: 0.3.0(@eslint/js@9.39.4)(@eslint/json@0.14.0)(@typescript-eslint/parser@8.59.4(eslint@10.4.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.4.0(jiti@2.7.0))(obsidian@1.13.0(@codemirror/state@6.5.0)(@codemirror/view@6.38.6))(typescript-eslint@8.59.3(eslint@10.4.0(jiti@2.7.0))(typescript@5.9.3))
       globals:
         specifier: ^17.6.0
         version: 17.6.0
@@ -54,8 +54,8 @@ importers:
         specifier: ^11.7.6
         version: 11.7.6
       obsidian:
-        specifier: ^1.12.3
-        version: 1.12.3(@codemirror/state@6.5.0)(@codemirror/view@6.38.6)
+        specifier: ^1.13.0
+        version: 1.13.0(@codemirror/state@6.5.0)(@codemirror/view@6.38.6)
       obsidian-launcher:
         specifier: ^3.0.3
         version: 3.0.3
@@ -76,7 +76,7 @@ importers:
         version: 3.0.3
       wdio-obsidian-service:
         specifier: ^3.0.3
-        version: 3.0.3(obsidian@1.12.3(@codemirror/state@6.5.0)(@codemirror/view@6.38.6))(webdriverio@9.27.1)
+        version: 3.0.3(obsidian@1.13.0(@codemirror/state@6.5.0)(@codemirror/view@6.38.6))(webdriverio@9.27.1)
 
 packages:
 
@@ -3036,8 +3036,8 @@ packages:
     engines: {node: '>=18.20.0'}
     hasBin: true
 
-  obsidian@1.12.3:
-    resolution: {integrity: sha512-HxWqe763dOqzXjnNiHmAJTRERN8KILBSqxDSEqbeSr7W8R8Jxezzbca+nz1LiiqXnMpM8lV2jzAezw3CZ4xNUw==}
+  obsidian@1.13.0:
+    resolution: {integrity: sha512-PHw5+SAPlJ0S3leFvJ0wgFg63Z3DavxL6+d1ll+8toXR2ZlYKc1rMWqdUv9LgUbTwPQUyY6yfhOMMivampRRiQ==}
     peerDependencies:
       '@codemirror/state': 6.5.0
       '@codemirror/view': 6.38.6
@@ -6267,7 +6267,7 @@ snapshots:
     dependencies:
       eslint: 10.4.0(jiti@2.7.0)
 
-  eslint-plugin-obsidianmd@0.3.0(@eslint/js@9.39.4)(@eslint/json@0.14.0)(@typescript-eslint/parser@8.59.4(eslint@10.4.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.4.0(jiti@2.7.0))(obsidian@1.12.3(@codemirror/state@6.5.0)(@codemirror/view@6.38.6))(typescript-eslint@8.59.3(eslint@10.4.0(jiti@2.7.0))(typescript@5.9.3)):
+  eslint-plugin-obsidianmd@0.3.0(@eslint/js@9.39.4)(@eslint/json@0.14.0)(@typescript-eslint/parser@8.59.4(eslint@10.4.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.4.0(jiti@2.7.0))(obsidian@1.13.0(@codemirror/state@6.5.0)(@codemirror/view@6.38.6))(typescript-eslint@8.59.3(eslint@10.4.0(jiti@2.7.0))(typescript@5.9.3)):
     dependencies:
       '@eslint/config-helpers': 0.4.2
       '@eslint/js': 9.39.4
@@ -6284,7 +6284,7 @@ snapshots:
       eslint-plugin-no-unsanitized: 4.1.5(eslint@10.4.0(jiti@2.7.0))
       eslint-plugin-security: 2.1.1
       globals: 14.0.0
-      obsidian: 1.12.3(@codemirror/state@6.5.0)(@codemirror/view@6.38.6)
+      obsidian: 1.13.0(@codemirror/state@6.5.0)(@codemirror/view@6.38.6)
       semver: 7.8.0
       typescript: 5.4.5
       typescript-eslint: 8.59.3(eslint@10.4.0(jiti@2.7.0))(typescript@5.9.3)
@@ -7681,7 +7681,7 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  obsidian@1.12.3(@codemirror/state@6.5.0)(@codemirror/view@6.38.6):
+  obsidian@1.13.0(@codemirror/state@6.5.0)(@codemirror/view@6.38.6):
     dependencies:
       '@codemirror/state': 6.5.0
       '@codemirror/view': 6.38.6
@@ -8568,10 +8568,10 @@ snapshots:
       '@wdio/reporter': 9.27.1
       '@wdio/spec-reporter': 9.27.1
 
-  wdio-obsidian-service@3.0.3(obsidian@1.12.3(@codemirror/state@6.5.0)(@codemirror/view@6.38.6))(webdriverio@9.27.1):
+  wdio-obsidian-service@3.0.3(obsidian@1.13.0(@codemirror/state@6.5.0)(@codemirror/view@6.38.6))(webdriverio@9.27.1):
     dependencies:
       lodash: 4.18.1
-      obsidian: 1.12.3(@codemirror/state@6.5.0)(@codemirror/view@6.38.6)
+      obsidian: 1.13.0(@codemirror/state@6.5.0)(@codemirror/view@6.38.6)
       obsidian-launcher: 3.0.3
       semver: 7.8.0
       tar: 7.5.15
